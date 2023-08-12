@@ -13,7 +13,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import Button from '~/components/button';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
