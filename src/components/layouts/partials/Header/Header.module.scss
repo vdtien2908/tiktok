@@ -102,7 +102,20 @@
     }
 }
 
-.custom-get-app{
-    padding:6px 14px;
-    color: rgba(22, 24, 35, .75);
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.custom-get-app {
+    padding: 6px 14px;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.more-btn {
+    font-size: 20px;
+    margin: 0 2px;
+    padding: 4px 22px;
+    background: transparent;
+    cursor: pointer;
 }
