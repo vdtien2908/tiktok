@@ -11,9 +11,12 @@
     padding: 11px 16px;
     justify-content: start;
     border-radius: 0;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-weight: 600;
     line-height: 18px;
+
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
