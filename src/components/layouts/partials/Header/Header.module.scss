@@ -102,14 +102,24 @@
     }
 }
 
+.custom-get-app {
+    padding: 6px 14px;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+// Action
 .actions {
     display: flex;
     align-items: center;
 }
 
-.custom-get-app {
-    padding: 6px 14px;
-    color: rgba(22, 24, 35, 0.75);
+.action-btn {
+    background-color: transparent;
+    font-size: 22px;
+    color: #161823;
+    cursor: pointer;
+    padding: 4px 12px;
+    line-height: 0;
 }
 
 .more-btn {
@@ -118,4 +128,13 @@
     padding: 4px 22px;
     background: transparent;
     cursor: pointer;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 12px;
 }
