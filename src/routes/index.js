@@ -18,7 +18,7 @@ const publicRoutes = [
         component: Following,
     },
     {
-        path: '/profile',
+        path: '/profile/:nickname',
         component: Profile,
     },
     {
@@ -33,7 +33,7 @@ const publicRoutes = [
     },
 ];
 
-// Privete routes - You need to be logged in to use it
+// Private routes - You need to be logged in to use it
 const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };
