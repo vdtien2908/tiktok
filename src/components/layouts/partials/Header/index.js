@@ -4,9 +4,10 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 // src public
-import images from '~/assets/images';
+import images from '~/bassets/images';
 
 // Components
 import {
@@ -24,6 +25,7 @@ import Button from '~/components/Button';
 import Search from '~/components/layouts/partials/Search';
 import Menu from '~/components/Menu';
 import Image from '~/components/Image';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -81,7 +83,7 @@ const USER_MENU = [
 ];
 
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -91,7 +93,10 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="TikToK" />
+                    <Link to={routesConfig.home}>
+                        {' '}
+                        <img src={images.logo} alt="TikToK" />
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('actions')}>

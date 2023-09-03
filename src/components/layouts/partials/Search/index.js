@@ -1,6 +1,6 @@
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import TippyHeadless from '@tippyjs/react/headless';
-import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMagnifyingGlass,
@@ -8,6 +8,7 @@ import {
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
+import * as searchServices from '~/apiServices/searchServices';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -31,19 +32,16 @@ function Search() {
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
 
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                debounced
-            )}&type=less`
-        )
-            .then((res) => res.json())
-            .then((result) => {
-                setSearchResult(result.data);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
@@ -54,6 +52,13 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
     };
 
     return (
@@ -79,7 +84,7 @@ function Search() {
                         value={searchValue}
                         placeholder="Search account and videos"
                         spellCheck={false}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
                     {!!searchValue && !loading && (
