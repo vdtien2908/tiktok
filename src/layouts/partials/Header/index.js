@@ -7,7 +7,7 @@ import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 // src public
-import images from '~/bassets/images';
+import images from '~/assets/images';
 
 // Components
 import {
@@ -22,10 +22,10 @@ import {
 } from '~/components/Icons';
 import styles from './Header.module.scss';
 import Button from '~/components/Button';
-import Search from '~/components/layouts/partials/Search';
+import Search from '~/layouts/partials/Search';
 import Menu from '~/components/Menu';
 import Image from '~/components/Image';
-import routesConfig from '~/config/routes';
+import config from '~/configs';
 
 const cx = classNames.bind(styles);
 
@@ -93,7 +93,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routesConfig.home}>
+                    <Link to={config.routes.home}>
                         {' '}
                         <img src={images.logo} alt="TikToK" />
                     </Link>

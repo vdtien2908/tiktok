@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useState, forwardRef } from 'react';
-import images from '~/bassets/images';
+import images from '~/assets/images';
 import style from './Image.module.scss';
 
 function Image({ src, alt, className, ...prods }, ref) {
